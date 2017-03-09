@@ -16,8 +16,8 @@ QUnit.test('DataStore.prototype.get()', function(assert) {
 
     ds.add('m@bond.com', 'tea');
     ds.add('james@bond.com', 'eshpresso');
-    assert.deepEqual(ds.get('m@bond.com'), 'tea', 'Returns Drink');
-    assert.deepEqual(ds.get('james@bond.com'), 'eshpresso', 'Returns Drink');
+    assert.deepEqual(ds.get('m@bond.com'), 'tea', 'Returns tea');
+    assert.deepEqual(ds.get('james@bond.com'), 'eshpresso', 'Returns eshpresso');
 });
 
 QUnit.test('DataStore.prototype.add', function(assert) {
@@ -45,8 +45,8 @@ QUnit.test('DataStore.prototype.remove()', function(assert) {
     ds.add('james@bond.com', 'eshpresso');
     ds.remove('james@bond.com');
 
-    assert.ok(ds.get('m@bond.com') == 'tea', 'Object, Object: equal succeeds');
-    assert.ok(ds.get('james@bond.com') == undefined, 'Object, Object: Removed succeeds');
+    assert.ok(ds.get('m@bond.com') == 'tea', 'Item Returns tea');
+    assert.ok(ds.get('james@bond.com') == undefined, 'james@bond.com Removed succeeds');
 });
 
 
@@ -136,7 +136,7 @@ QUnit.test('Truck.prototype.printOrders()', function(assert) {
         coffee: 'decaf'
     });
 
-    var test= myTruck.printOrders();
+    var test = myTruck.printOrders();
 
     assert.deepEqual(myTruck.printOrders(), test, 'Deliver Order works');
 
